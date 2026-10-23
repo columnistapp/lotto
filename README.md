@@ -1,8 +1,8 @@
 # Columnist: Lotto Analytics AI
 
-Static legal-document website for the Application's Terms of Use and Privacy Policy, available in Turkish and English.
+Static legal-document website for the application's Terms of Use and Privacy Policy, available in Turkish and English.
 
-## Public pages
+## Public pages (after GitHub Pages is enabled)
 
 - Home: https://columnistapp.github.io/lotto/
 - Terms of Use: https://columnistapp.github.io/lotto/terms/
@@ -12,4 +12,4 @@ The landing page and document routes use the browser's preferred language when i
 
 ## Publishing
 
-GitHub Pages is configured to publish the `main` branch from the repository root (`/`). The website is static HTML; no server-side application code is run by GitHub Pages.
+In the repository settings, enable GitHub Pages with the `main` branch and repository root (`/`) as the publishing source. After GitHub Pages finishes deploying, verify the public home page and both document routes. The website is static HTML; no server-side application code is run by GitHub Pages.
