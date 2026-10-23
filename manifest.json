@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "documents": {
+    "termsOfUse": {
+      "version": "1.0",
+      "lastUpdated": "2026-10-23",
+      "defaultLocale": "en",
+      "locales": {
+        "tr-TR": { "language": "tr", "label": "Türkçe", "path": "terms/?lang=tr" },
+        "en": { "language": "en", "label": "English", "path": "terms/?lang=en" }
+      }
+    },
+    "privacyPolicy": {
+      "version": "1.0",
+      "lastUpdated": "2026-10-23",
+      "defaultLocale": "en",
+      "locales": {
+        "tr-TR": { "language": "tr", "label": "Türkçe", "path": "privacy/?lang=tr" },
+        "en": { "language": "en", "label": "English", "path": "privacy/?lang=en" }
+      }
+    }
+  }
+}
