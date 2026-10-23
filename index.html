@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101522">
+<meta name="robots" content="index,follow">
+<title>Columnist: Lotto Analytics AI</title>
+<style>
+:root{color-scheme:dark;--bg:#101522;--panel:#192132;--text:#eef2fb;--muted:#aab5c8;--line:#303b50;--accent:#9ab2ff;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:24px;background:radial-gradient(ellipse at top,#1c2940 0%,var(--bg) 55%);color:var(--text);line-height:1.65}
+main{max-width:760px;margin:7vh auto;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,5vw,48px);box-shadow:0 20px 60px #0005}
+
+h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.12;letter-spacing:-.04em;margin:.5rem 0 1rem}
+p{color:var(--muted)}.documents{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
+a.doc{display:block;text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:16px;padding:20px;background:#202b40;transition:border-color .15s,transform .15s}
+a.doc:hover{transform:translateY(-2px);border-color:var(--accent)}a.doc strong{display:block;font-size:1.05rem;margin-bottom:6px}a.doc span{color:var(--muted);font-size:.92rem}
+a.doc.disabled{opacity:.72;cursor:default}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+<h1>Columnist: Lotto Analytics AI</h1>
+<div class="documents">
+<a class="doc" id="termsLink" href="./terms/"><strong id="termsTitle">Terms of Use</strong><span id="termsDescription">Terms and limitation of liability</span></a>
+<a class="doc" id="privacyLink" href="./privacy/"><strong id="privacyTitle">Privacy Policy</strong><span id="privacyDescription">How information is used and service-provider links</span></a>
+</div>
+</main>
+<script>
+(function(){
+const requested=new URLSearchParams(window.location.search).get("lang");
+const browserPrefs=[
+  ...(Array.isArray(navigator.languages)?navigator.languages:[]),
+  navigator.language,
+  (Intl.DateTimeFormat().resolvedOptions()||{}).locale
+].filter(Boolean);
+const supported=["tr","en"];
+const preferred=requested&&supported.includes(requested.toLowerCase())
+  ? requested.toLowerCase()
+  : browserPrefs.map(value=>String(value).toLowerCase().split(/[-_]/)[0]).find(code=>supported.includes(code))||"en";
+const tr=preferred==="tr";
+const lang=preferred;
+document.documentElement.lang=tr?"tr-TR":"en";
+document.title="Columnist: Lotto Analytics AI";
+const text=tr?{
+terms:"Kullanım Şartları",termsDescription:"Kullanım koşulları ve sorumluluk sınırları",
+privacy:"Gizlilik Politikası",privacyDescription:"Verilerin kullanımı ve hizmet sağlayıcı bağlantıları",termsPath:"./terms/",privacyPath:"./privacy/"
+}:{
+terms:"Terms of Use",termsDescription:"Terms and limitation of liability",
+privacy:"Privacy Policy",privacyDescription:"Data use and service-provider links",termsPath:"./terms/",privacyPath:"./privacy/"
+};
+document.getElementById("termsTitle").textContent=text.terms;
+document.getElementById("termsDescription").textContent=text.termsDescription;
+document.getElementById("privacyTitle").textContent=text.privacy;
+document.getElementById("privacyDescription").textContent=text.privacyDescription;
+document.getElementById("privacyLink").href=text.privacyPath;
+document.getElementById("termsLink").href=text.termsPath;
+})();
+</script>
+</body>
+</html>
