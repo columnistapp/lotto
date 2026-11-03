@@ -7,7 +7,7 @@
     "ios": { "version": "0.79.0", "mandatory": false },
     "mac_catalyst": { "version": "0.79.0", "mandatory": false },
     "macos": { "version": "0.79.0", "mandatory": false },
-    "windows_desktop": { "version": "0.79.0", "mandatory": false },
-    "windows_store": { "version": "0.79.0", "mandatory": false }
+    "windows_desktop": { "version": "0.80.0", "mandatory": false },
+    "windows_store": { "version": "0.80.0", "mandatory": false }
   }
 }
