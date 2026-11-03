@@ -1,71 +1,65 @@
 {
   "schema_version": 1,
-  "platforms": {
-    "android_gms": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "test",
-      "version_modes": {
-        "0.79.0": "test"
-      }
-    },
-    "android_hms": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off"
-      }
-    },
-    "harmonyos_next": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off"
-      }
-    },
+  "updates": {
     "ios": {
       "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "test",
-      "version_modes": {
-        "0.79.0": "test"
-      }
-    },
-    "mac_catalyst": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off"
-      }
+      "mandatory": false
     },
     "macos": {
       "version": "0.79.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off"
-      }
+      "mandatory": false
     },
-    "windows_desktop": {
-      "version": "0.80.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off",
-        "0.80.0": "off"
-      }
+    "android_gms": {
+      "version": "0.79.0",
+      "mandatory": false
     },
-    "windows_store": {
+    "android_hms": {
+      "version": "0.79.0",
+      "mandatory": false
+    },
+    "harmonyos": {
+      "version": "0.79.0",
+      "mandatory": false
+    },
+    "windows": {
       "version": "0.80.0",
-      "mandatory": false,
-      "ads_mode": "off",
-      "version_modes": {
-        "0.79.0": "off",
-        "0.80.0": "off"
-      }
+      "mandatory": false
+    }
+  },
+  "ads": {
+    "android_gms": {
+      "enabled": true,
+      "test": [
+        "0.79.0"
+      ],
+      "live": []
+    },
+    "ios": {
+      "enabled": true,
+      "test": [
+        "0.79.0"
+      ],
+      "live": []
+    },
+    "android_hms": {
+      "enabled": false,
+      "test": [],
+      "live": []
+    },
+    "harmonyos": {
+      "enabled": false,
+      "test": [],
+      "live": []
+    },
+    "macos": {
+      "enabled": false,
+      "test": [],
+      "live": []
+    },
+    "windows": {
+      "enabled": false,
+      "test": [],
+      "live": []
     }
   }
 }
