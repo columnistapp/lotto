@@ -14,15 +14,16 @@ The landing page and document routes use the browser's preferred language when i
 
 The native app reads `app_versions.json` directly from GitHub's raw-file endpoint. This check does not use GitHub Pages, `index.html`, or a website route.
 
-Each platform entry contains:
+Each platform entry contains only:
 
 - `version`: the newest app version for that platform.
 - `mandatory`: `true` blocks continued use until the app is updated; `false` allows the user to update later.
-- `store_url`: the exact public listing URL for that app in its own store. Use the app's listing page, not the repository or a store search page.
 
 Supported platform keys are `android_gms`, `android_hms`, `harmonyos_next`, `ios`, `mac_catalyst`, `macos`, `windows_desktop`, and `windows_store`.
 
-The app validates store URLs against the expected store domain for each platform. When a newer version is published, make sure its `store_url` is set to a valid listing URL; otherwise the app safely skips the update prompt rather than trapping users without an install destination.
+The app's store listing URL is deliberately kept in its local platform configuration, not in this repository manifest. When an update is available, the app opens the corresponding app listing in the store used by that installation. Do not put GitHub URLs, website routes, or store search/home pages in the version manifest.
+
+Before setting a platform to a newer version or making an update mandatory, verify that the installed app has a valid, exact app-listing URL configured for that platform. Platforms without a configured store listing fail open and do not show an update prompt, so users are not blocked without a working update destination.
 
 ## Publishing
 
