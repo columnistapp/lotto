@@ -1,45 +1,13 @@
 {
   "schema_version": 1,
   "platforms": {
-    "android_gms": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": "https://play.google.com/store/apps/details?id=com.columnist.lottoanalyticsai"
-    },
-    "android_hms": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "harmonyos_next": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "ios": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "mac_catalyst": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "macos": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "windows_desktop": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    },
-    "windows_store": {
-      "version": "0.79.0",
-      "mandatory": false,
-      "store_url": null
-    }
+    "android_gms": { "version": "0.79.0", "mandatory": false },
+    "android_hms": { "version": "0.79.0", "mandatory": false },
+    "harmonyos_next": { "version": "0.79.0", "mandatory": false },
+    "ios": { "version": "0.79.0", "mandatory": false },
+    "mac_catalyst": { "version": "0.79.0", "mandatory": false },
+    "macos": { "version": "0.79.0", "mandatory": false },
+    "windows_desktop": { "version": "0.79.0", "mandatory": false },
+    "windows_store": { "version": "0.79.0", "mandatory": false }
   }
 }
