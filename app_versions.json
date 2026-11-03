@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "platforms": {
-    "android_gms": { "version": "0.79.0", "mandatory": false },
-    "android_hms": { "version": "0.79.0", "mandatory": false },
-    "harmonyos_next": { "version": "0.79.0", "mandatory": false },
-    "ios": { "version": "0.79.0", "mandatory": false },
-    "mac_catalyst": { "version": "0.79.0", "mandatory": false },
-    "macos": { "version": "0.79.0", "mandatory": false },
-    "windows_desktop": { "version": "0.80.0", "mandatory": false },
-    "windows_store": { "version": "0.80.0", "mandatory": false }
+    "android_gms": { "version": "0.79.0", "mandatory": false, "ads_mode": "test" },
+    "android_hms": { "version": "0.79.0", "mandatory": false, "ads_mode": "off" },
+    "harmonyos_next": { "version": "0.79.0", "mandatory": false, "ads_mode": "off" },
+    "ios": { "version": "0.79.0", "mandatory": false, "ads_mode": "test" },
+    "mac_catalyst": { "version": "0.79.0", "mandatory": false, "ads_mode": "off" },
+    "macos": { "version": "0.79.0", "mandatory": false, "ads_mode": "off" },
+    "windows_desktop": { "version": "0.80.0", "mandatory": false, "ads_mode": "off" },
+    "windows_store": { "version": "0.80.0", "mandatory": false, "ads_mode": "off" }
   }
 }
