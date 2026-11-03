@@ -29,16 +29,12 @@
   "ads": {
     "android_gms": {
       "enabled": true,
-      "test": [
-        "0.79.0"
-      ],
+      "test": ["0.79.0"],
       "live": []
     },
     "ios": {
       "enabled": true,
-      "test": [
-        "0.79.0"
-      ],
+      "test": ["0.79.0"],
       "live": []
     },
     "android_hms": {
@@ -61,5 +57,13 @@
       "test": [],
       "live": []
     }
+  },
+  "store": {
+    "ios": true,
+    "macos": true,
+    "android_gms": true,
+    "android_hms": true,
+    "harmonyos": true,
+    "windows": true
   }
 }
