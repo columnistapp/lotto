@@ -10,7 +10,7 @@
       "mandatory": false
     },
     "android_gms": {
-      "version": "0.79.0",
+      "version": "0.84.0",
       "mandatory": false
     },
     "android_hms": {
@@ -30,7 +30,7 @@
     "android_gms": {
       "enabled": true,
       "test": ["0.79.0"],
-      "live": []
+      "live": ["0.83.0"]
     },
     "ios": {
       "enabled": true,
@@ -61,9 +61,9 @@
   "store": {
     "ios": true,
     "macos": true,
-    "android_gms": true,
+    "android_gms": false,
     "android_hms": true,
     "harmonyos": true,
-    "windows": true
+    "windows": false
   }
 }
