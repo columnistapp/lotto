@@ -2,35 +2,35 @@
   "schema_version": 1,
   "updates": {
     "ios": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "macos": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "android_gms": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "android_hms": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "harmonyos": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "windows": {
-      "version": "1.00.0",
+      "version": "0.86.0",
       "mandatory": false
     }
   },
   "ads": {
     "android_gms": {
       "enabled": true,
-      "test": [],
-      "live": ["0.86.0"]
+      "test": ["0.86.0"],
+      "live": []
     },
     "ios": {
       "enabled": true,
@@ -39,7 +39,7 @@
     },
     "android_hms": {
       "enabled": true,
-      "test": [],
+      "test": ["0.86.0"],
       "live": []
     },
     "harmonyos": {
