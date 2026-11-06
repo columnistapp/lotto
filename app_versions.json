@@ -30,7 +30,7 @@
     "android_gms": {
       "enabled": true,
       "test": [],
-      "live": []
+      "live": ["0.86.0"]
     },
     "ios": {
       "enabled": true,
@@ -61,7 +61,7 @@
   "store": {
     "ios": true,
     "macos": true,
-    "android_gms": true,
+    "android_gms": false,
     "android_hms": true,
     "harmonyos": true,
     "windows": true
