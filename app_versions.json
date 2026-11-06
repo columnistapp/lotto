@@ -61,7 +61,7 @@
   "store": {
     "ios": true,
     "macos": true,
-    "android_gms": false,
+    "android_gms": true,
     "android_hms": true,
     "harmonyos": true,
     "windows": true
