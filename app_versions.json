@@ -2,28 +2,28 @@
   "schema_version": 1,
   "updates": {
     "ios": {
-      "version": "0.87.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "macos": {
-      "version": "0.87.0",
-      "mandatory": false
+      "version": "0.86.0",
+      "mandatory": true
     },
     "android_gms": {
-      "version": "0.87.0",
+      "version": "0.86.0",
       "mandatory": true
     },
     "android_hms": {
-      "version": "0.87.0",
-      "mandatory": false
+      "version": "0.86.0",
+      "mandatory": true
     },
     "harmonyos": {
-      "version": "0.87.0",
-      "mandatory": false
+      "version": "0.86.0",
+      "mandatory": true
     },
     "windows": {
-      "version": "0.87.0",
-      "mandatory": false
+      "version": "0.86.0",
+      "mandatory": true
     }
   },
   "ads": {
