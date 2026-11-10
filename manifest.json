@@ -6,8 +6,16 @@
       "lastUpdated": "2026-10-23",
       "defaultLocale": "en",
       "locales": {
-        "tr-TR": { "language": "tr", "label": "Türkçe", "path": "terms/?lang=tr" },
-        "en": { "language": "en", "label": "English", "path": "terms/?lang=en" }
+        "tr-TR": {
+          "language": "tr",
+          "label": "Türkçe",
+          "path": "terms/?lang=tr-tr"
+        },
+        "en": {
+          "language": "en",
+          "label": "English",
+          "path": "terms/?lang=en-us"
+        }
       }
     },
     "privacyPolicy": {
@@ -15,8 +23,16 @@
       "lastUpdated": "2026-10-23",
       "defaultLocale": "en",
       "locales": {
-        "tr-TR": { "language": "tr", "label": "Türkçe", "path": "privacy/?lang=tr" },
-        "en": { "language": "en", "label": "English", "path": "privacy/?lang=en" }
+        "tr-TR": {
+          "language": "tr",
+          "label": "Türkçe",
+          "path": "privacy/?lang=tr-tr"
+        },
+        "en": {
+          "language": "en",
+          "label": "English",
+          "path": "privacy/?lang=en-us"
+        }
       }
     }
   }
