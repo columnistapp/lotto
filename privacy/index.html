@@ -30,7 +30,7 @@ a{color:var(--accent);overflow-wrap:anywhere}
 </style>
 </head>
 <body>
-<nav aria-label="Language selection"><label class="language-label" for="language-select">Language:</label><select id="language-select" aria-label="Language selection" onchange="if(this.value) window.location.href=this.value"><option value="https://columnistapp.github.io/lotto/privacy/?lang=tr-tr">Türkçe</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=en-us" selected>English</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=de-de">Deutsch</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=fr-fr">Français</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=es-es">Español (España)</option></select></nav>
+<nav aria-label="Language selection"><label class="language-label" for="language-select">Language:</label><select id="language-select" aria-label="Language selection" onchange="if(this.value) window.location.href=this.value"><option value="https://columnistapp.github.io/lotto/privacy/?lang=tr-tr">Türkçe</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=en-us" selected>English</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=de-de">Deutsch</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=fr-fr">Français</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=es-es">Español (España)</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=ar">العربية</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=cs-cz">Čeština</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=da-dk">Dansk</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=el-gr">Ελληνικά</option><option value="https://columnistapp.github.io/lotto/privacy/?lang=fi-fi">Suomi</option></select></nav>
 <h1 class="brand">Columnist: Lotto Analytics AI</h1><h2 class="document-title">Privacy Policy</h2>
 <p class="meta">Version: 1.1 · Last updated: 9 November 2026</p>
 <p>This Privacy Policy explains how personal data is processed when you use Columnist: Lotto Analytics AI and its related online services. Some features operate on your device, while features such as accounts, purchases, notifications and advertising may rely on relevant online services. The data processed may vary depending on the features and platform you use.</p>
@@ -125,8 +125,8 @@ a{color:var(--accent);overflow-wrap:anywhere}
     navigator.language,
     (Intl.DateTimeFormat().resolvedOptions() || {}).locale
   ].filter(Boolean);
-  const supported = ["tr-tr", "en-us", "de-de", "fr-fr", "es-es"];
-  const files = {"tr-tr":"tr-TR.html", "en-us":"en.html", "de-de":"de-DE.html", "fr-fr":"fr-FR.html", "es-es":"es-ES.html"};
+  const supported = ["tr-tr", "en-us", "de-de", "fr-fr", "es-es", "ar", "cs-cz", "da-dk", "el-gr", "fi-fi"];
+  const files = {"tr-tr":"tr-TR.html", "en-us":"en.html", "de-de":"de-DE.html", "fr-fr":"fr-FR.html", "es-es":"es-ES.html", "ar":"ar.html", "cs-cz":"cs-CZ.html", "da-dk":"da-DK.html", "el-gr":"el-GR.html", "fi-fi":"fi-FI.html"};
   function normalize(value) {
     const code = String(value || "").toLowerCase().replace(/_/g, "-");
     if (code === "tr") return "tr-tr";
@@ -155,6 +155,11 @@ a{color:var(--accent);overflow-wrap:anywhere}
   // BAT mapping: if (language !== "de-de") return; fetch("./de-DE.html")
   // BAT mapping: if (language !== "fr-fr") return; fetch("./fr-FR.html")
   // BAT mapping: if (language !== "es-es") return; fetch("./es-ES.html")
+  // BAT mapping: if (language !== "ar") return; fetch("./ar.html")
+  // BAT mapping: if (language !== "cs-cz") return; fetch("./cs-CZ.html")
+  // BAT mapping: if (language !== "da-dk") return; fetch("./da-DK.html")
+  // BAT mapping: if (language !== "el-gr") return; fetch("./el-GR.html")
+  // BAT mapping: if (language !== "fi-fi") return; fetch("./fi-FI.html")
 })();
 </script></body>
 </html>
