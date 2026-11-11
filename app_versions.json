@@ -30,7 +30,7 @@
     "android_gms": {
       "enabled": true,
       "test": [],
-      "live": [0.86.0]
+      "live": ["0.86.0"]
     },
     "ios": {
       "enabled": true,
