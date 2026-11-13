@@ -28,7 +28,7 @@
   },
   "ads": {
     "android_gms": {
-      "enabled": false,
+      "enabled": true,
       "test": [],
       "live": []
     },
