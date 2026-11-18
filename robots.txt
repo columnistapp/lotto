@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://columnistapp.github.io/lotto/sitemap.xml
