@@ -38,7 +38,7 @@
       "live": []
     },
     "android_hms": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
       "live": []
     },
