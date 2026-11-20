@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07111f">
+  <title>Columnist Tutorial</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--panel:#0d1a2a;--text:#f3f8ff;--muted:#a9bacd;--line:#263d56;--cyan:#20d8ed;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 0%,#102b49 0%,var(--bg) 62%);color:var(--text);line-height:1.6}
+    main{width:min(100%,560px);padding:clamp(24px,5vw,40px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(155deg,#102238 0%,var(--panel) 64%);box-shadow:0 22px 70px #0006;text-align:center}
+    h1{margin:0 0 10px;font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.2}
+    p{margin:0;color:var(--muted)}
+    .mark{width:64px;height:64px;margin:0 auto 18px;border-radius:18px;background:#102b49;border:1px solid #265174;display:grid;place-items:center;color:var(--cyan);font-size:30px;font-weight:800}
+    .hidden{display:none}
+    a{color:var(--cyan);word-break:break-word}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">C</div>
+    <h1>Columnist Tutorial</h1>
+    <p id="status">Opening the official tutorial video…</p>
+    <p id="fallback" class="hidden">The tutorial video is being prepared. Please try again later.</p>
+  </main>
+  <script>
+  (async function(){
+    "use strict";
+    var status=document.getElementById("status");
+    var fallback=document.getElementById("fallback");
+    try{
+      // no-store plus a unique query prevents a changed video URL from being held by browser caches.
+      var response=await fetch("./video-config.json?t="+Date.now(),{cache:"no-store"});
+      if(!response.ok) throw new Error("Tutorial configuration could not be loaded.");
+      var config=await response.json();
+      var target=String(config.videoUrl||"").trim();
+      if(!target){
+        status.classList.add("hidden");
+        fallback.classList.remove("hidden");
+        return;
+      }
+      var url=new URL(target);
+      if(url.protocol!=="https:") throw new Error("Only HTTPS video destinations are allowed.");
+      status.textContent="Redirecting to the Columnist tutorial…";
+      window.location.replace(url.href);
+    }catch(error){
+      status.classList.add("hidden");
+      fallback.classList.remove("hidden");
+    }
+  })();
+  </script>
+</body>
+</html>
