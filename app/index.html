@@ -32,28 +32,38 @@
     h1{font-size:clamp(1.55rem,5vw,2.25rem);line-height:1.18;margin:0 0 10px;letter-spacing:-.025em}
     .tagline{color:var(--cyan);font-weight:700;font-size:clamp(1rem,3.2vw,1.2rem);margin:0 0 12px}
     .intro{color:var(--muted);margin:0 auto 24px;max-width:560px}
-    .stores{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px;margin-top:22px}
-    .store{display:flex;align-items:center;justify-content:center;min-height:52px;padding:12px 16px;border:1px solid #365270;border-radius:13px;background:#142b43;color:var(--text);font-weight:650;text-decoration:none;transition:background .15s,border-color .15s}
-    .store:hover{background:#1a3958;border-color:var(--cyan)}
+    .stores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:22px}
+    .store{display:flex;align-items:center;justify-content:flex-start;gap:13px;min-height:68px;padding:12px 15px;border:1px solid #365270;border-radius:13px;background:#142b43;color:var(--text);font-weight:650;text-decoration:none;text-align:left;transition:background .15s,border-color .15s,opacity .15s}
+    a.store:hover{background:#1a3958;border-color:var(--cyan)}
+    .store-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center}
+    .store-icon svg{display:block;width:100%;height:100%}
+    .store-name{flex:1;line-height:1.25}
+    .store-status{flex:0 0 auto;padding:4px 7px;border:1px solid #43536a;border-radius:7px;color:#91a2b6;font-size:.68rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+    .store.is-disabled{background:#101d2c;border-color:#24364b;color:#74859a;opacity:.58;cursor:not-allowed;filter:saturate(.25)}
+    .store.is-disabled .store-icon{filter:grayscale(1)}
     .note{font-size:.82rem;color:#8fa5bc;margin:22px auto 0;max-width:560px}
     :focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+    @media(max-width:520px){body{padding:16px 12px}main{padding:22px 16px}.stores{grid-template-columns:1fr}.store{min-height:64px}}
+    @media(prefers-reduced-motion:reduce){.store{transition:none}}
   </style>
 </head>
 <body>
 <main>
-  <img class="brand" src="./og-image-english-exact.jpg" width="1200" height="630" alt="Columnist: Gelişmiş Analiz, AI ve Simülasyon" fetchpriority="high">
+  <img class="brand" src="./og-image-english-exact.jpg" width="1200" height="630" alt="Columnist: Advanced Analysis, AI and Simulation" fetchpriority="high">
   <h1 id="heading">Columnist: Lotto Analytics AI</h1>
   <p class="tagline" id="tagline">Advanced Analysis • AI • Simulation</p>
-  <p class="intro" id="intro">This link opens the official app listing for your device. If automatic redirection is unavailable, choose your app store below.</p>
-  <nav class="stores" aria-label="Official app stores">
-    <a class="store" data-store="ios" href="https://apps.apple.com/app/id6826434377">Apple App Store</a>
-    <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.columnist.lottoanalyticsai">Google Play</a>
-    <a class="store" data-store="huawei" href="https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai">Huawei AppGallery</a>
-    <a class="store" data-store="harmony" href="https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai.next">AppGallery • HarmonyOS NEXT</a>
-    <a class="store" data-store="windows" href="https://apps.microsoft.com/detail/9NXHVVZXZLC4">Microsoft Store</a>
+  <p class="intro" id="intro">This link opens the official app store for your device. If automatic redirection is unavailable, choose an active store below.</p>
+  <nav class="stores" id="stores" aria-label="Official app stores">
+    <div class="store" data-store="ios" aria-disabled="true"><span class="store-name">Apple App Store</span></div>
+    <div class="store" data-store="android" aria-disabled="true"><span class="store-name">Google Play</span></div>
+    <div class="store" data-store="huawei" aria-disabled="true"><span class="store-name">Huawei AppGallery</span></div>
+    <div class="store" data-store="harmony" aria-disabled="true"><span class="store-name">AppGallery • HarmonyOS NEXT</span></div>
+    <div class="store" data-store="windows" aria-disabled="true"><span class="store-name">Microsoft Store</span></div>
   </nav>
-  <p class="note" id="note">The installed app is not opened. You will be taken to its store listing.</p>
+  <p class="note" id="note">Only active stores can be opened. Inactive stores will appear here when they are ready.</p>
 </main>
+
+<script src="./store-config.js"></script>
 <script>
 (function(){
   "use strict";
@@ -62,41 +72,75 @@
   var lang=(navigator.language||"en").toLowerCase();
   var tr=lang==="tr"||lang.indexOf("tr-")===0;
   var text=tr?{
-    heading:"Columnist: Lotto Analytics AI",
-    tagline:"Gelişmiş Analiz • AI • Simülasyon",
-    intro:"Bu bağlantı, cihazınıza uygun resmî uygulama mağazasını açar. Otomatik yönlendirme gerçekleşmezse aşağıdan mağazanızı seçebilirsiniz.",
-    note:"Uygulama doğrudan açılmaz; mağazadaki uygulama sayfası görüntülenir."
+    intro:"Bu bağlantı, cihazınıza uygun etkin uygulama mağazasını açar. Otomatik yönlendirme olmazsa aşağıdaki etkin mağazalardan birini seçebilirsiniz.",
+    note:"Yalnızca etkin mağazalar açılabilir. Henüz hazır olmayan mağazalar pasif görünür."
   }:{
-    heading:"Columnist: Lotto Analytics AI",
-    tagline:"Advanced Analysis • AI • Simulation",
-    intro:"This link opens the official app store for your device. If automatic redirection is unavailable, choose your app store below.",
-    note:"The installed app is not opened; its store listing is displayed."
+    intro:"This link opens the active app store for your device. If automatic redirection is unavailable, choose an active store below.",
+    note:"Only active stores can be opened. Stores that are not ready yet are shown as inactive."
   };
   document.documentElement.lang=tr?"tr-TR":"en";
-  document.getElementById("heading").textContent=text.heading;
-  document.getElementById("tagline").textContent=text.tagline;
   document.getElementById("intro").textContent=text.intro;
   document.getElementById("note").textContent=text.note;
 
-  var bots=/googlebot|google-inspectiontool|googleother|bingbot|duckduckbot|slurp|baiduspider|yandexbot|applebot|facebookexternalhit|facebot|twitterbot|telegrambot|whatsapp|discordbot|slackbot|linkedinbot|pinterestbot|crawler|spider|bot\b/i.test(ua);
-  var store=null;
-  if(/openharmony|hmos\s*next|harmonyos(?:\s*(?:next|[5-9](?:\.|\b))|\/(?:5|6|7|8|9)(?:\.|\b))/i.test(ua)){
-    store="harmony";
-  }else if(/iphone|ipad|ipod/i.test(ua)||(lower.indexOf("macintosh")!==-1&&navigator.maxTouchPoints>1)){
-    store="ios";
-  }else if(/windows nt/i.test(ua)){
-    store="windows";
-  }else if(/macintosh|mac os x/i.test(ua)){
-    store="ios";
-  }else if(/android/i.test(ua)){
-    store=/huawei|honor|huaweibrowser/i.test(ua)?"huawei":"android";
-  }
-  if(store){
-    var link=document.querySelector('[data-store="'+store+'"]');
-    if(link) link.setAttribute("aria-current","true");
-    if(!bots&&link){
-      window.setTimeout(function(){window.location.replace(link.href);},180);
+  var defaults={ios:true,android:true,huawei:true,harmony:false,windows:false};
+  var config=window.COLUMNIST_STORE_CONFIG||defaults;
+  var icons={
+    ios:'<svg viewBox="0 0 384 512" role="img" aria-label="Apple"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-27-47.2-41.9-84.8-44.8-35.6-2.8-74.6 20.8-88.9 20.8-15.1 0-49.7-19.8-76.8-19.8C62.3 141 4 184.4 4 273.2c0 26.2 4.8 53.2 14.4 81 12.9 36.7 59.4 126.6 107.8 125.1 25.4-.6 43.3-18.1 76.3-18.1 32 0 48.6 18.1 76.9 18.1 48.8-.7 90.8-82.4 103.1-119.2-65.5-30.9-63.8-89.5-63.8-91.4zM261.5 104.8c27.4-32.5 24.9-62.2 24.1-72.8-24.2 1.4-52.2 16.5-68.1 35-17.5 19.8-27.8 44.3-25.6 72 26.2 2 50.1-11.4 69.6-34.2z"/></svg>',
+    android:'<svg viewBox="0 0 48 48" role="img" aria-label="Google Play"><path fill="#34A853" d="M5.2 4.2c-.8.8-1.2 1.8-1.2 3.2v33.2c0 1.4.4 2.5 1.2 3.2L24 24 5.2 4.2z"/><path fill="#4285F4" d="M5.2 43.8c1.1 1 2.8 1.1 4.6.1L31 32.2 24 24 5.2 43.8z"/><path fill="#FBBC04" d="M42.3 20.1 33.7 15 24 24l9.7 8 8.6-5.1c3.1-1.8 3.1-5 0-6.8z"/><path fill="#EA4335" d="M9.8 4.1c-1.8-1-3.5-.9-4.6.1L24 24l9.7-9L9.8 4.1z"/></svg>',
+    huawei:'<svg viewBox="0 0 48 48" role="img" aria-label="Huawei AppGallery"><g fill="#F04452"><path d="M24 4c-4.2 5.2-5.1 9.2-2.8 13.2 1.4 2.4 3.1 3.4 4.5 3.8C29.1 14.7 28.1 9.7 24 4z"/><path d="M8.2 9.8c-.4 7 1.5 10.7 6 12.2 2.6.8 4.6.5 5.9-.2C17.8 15.6 13.8 12.2 8.2 9.8z"/><path d="M4 26c5.7 4.2 9.8 4.6 13.2 1.4 1.9-1.8 2.5-3.8 2.5-5.2C12.7 20.8 8 22.1 4 26z"/><path d="M9 42c6.8-1.5 10-4.2 10.3-9.1.1-2.7-.7-4.5-1.8-5.6C12.1 31.2 9.9 35.8 9 42z"/><path d="M39.8 9.8c.4 7-1.5 10.7-6 12.2-2.6.8-4.6.5-5.9-.2 2.3-6.2 6.3-9.6 11.9-12z"/><path d="M44 26c-5.7 4.2-9.8 4.6-13.2 1.4-1.9-1.8-2.5-3.8-2.5-5.2C35.3 20.8 40 22.1 44 26z"/><path d="M39 42c-6.8-1.5-10-4.2-10.3-9.1-.1-2.7.7-4.5 1.8-5.6C35.9 31.2 38.1 35.8 39 42z"/></g></svg>',
+    harmony:'<svg viewBox="0 0 48 48" role="img" aria-label="AppGallery for HarmonyOS"><rect x="2" y="2" width="44" height="44" rx="11" fill="#192d45"/><path fill="#F04452" d="M24 7c-3.4 4.2-4.1 7.4-2.2 10.6 1.1 1.9 2.5 2.7 3.6 3.1C28.1 15.6 27.3 11.6 24 7zM10 12c-.3 5.6 1.2 8.6 4.8 9.8 2.1.7 3.7.4 4.7-.2C17.7 16.7 14.5 14 10 12zM6 26c4.6 3.4 7.9 3.7 10.6 1.1 1.5-1.4 2-3 2-4.2C13 21.8 9.2 22.9 6 26zM12 39c5.4-1.2 8-3.4 8.2-7.3.1-2.2-.6-3.6-1.4-4.5C14.5 30.4 12.7 34.1 12 39zM38 12c.3 5.6-1.2 8.6-4.8 9.8-2.1.7-3.7.4-4.7-.2 1.8-4.9 5-7.6 9.5-9.6zM42 26c-4.6 3.4-7.9 3.7-10.6 1.1-1.5-1.4-2-3-2-4.2C35 21.8 38.8 22.9 42 26zM36 39c-5.4-1.2-8-3.4-8.2-7.3-.1-2.2.6-3.6 1.4-4.5 4.3 3.2 5.9 6.9 6.8 11.8z"/></svg>',
+    windows:'<svg viewBox="0 0 48 48" role="img" aria-label="Microsoft"><path fill="#F35325" d="M4 7 21 4.5v17H4z"/><path fill="#81BC06" d="M24 4.1 44 1v20.5H24z"/><path fill="#05A6F0" d="M4 24h17v17L4 38.5z"/><path fill="#FFBA08" d="M24 24h20v20.5L24 41z"/></svg>'
+  };
+  var stores=[
+    {id:"ios",href:"https://apps.apple.com/app/id6826434377",en:"Apple App Store",tr:"Apple App Store",icon:icons.ios},
+    {id:"android",href:"https://play.google.com/store/apps/details?id=com.columnist.lottoanalyticsai",en:"Google Play",tr:"Google Play",icon:icons.android},
+    {id:"huawei",href:"https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai",en:"Huawei AppGallery",tr:"Huawei AppGallery",icon:icons.huawei},
+    {id:"harmony",href:"https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai.next",en:"AppGallery • HarmonyOS NEXT",tr:"AppGallery • HarmonyOS NEXT",icon:icons.harmony},
+    {id:"windows",href:"https://apps.microsoft.com/detail/9NXHVVZXZLC4",en:"Microsoft Store",tr:"Microsoft Store",icon:icons.windows}
+  ];
+  var nav=document.getElementById("stores");
+  nav.innerHTML="";
+  stores.forEach(function(store){
+    var enabled=config[store.id]===true;
+    var card=document.createElement(enabled?"a":"div");
+    card.className="store"+(enabled?"":" is-disabled");
+    card.setAttribute("data-store",store.id);
+    if(enabled){
+      card.href=store.href;
+    }else{
+      card.setAttribute("aria-disabled","true");
+      card.title=tr?"Bu mağaza henüz etkin değil":"This store is not active yet";
     }
+    card.innerHTML='<span class="store-icon">'+store.icon+'</span>'+
+      '<span class="store-name">'+(tr?store.tr:store.en)+'</span>'+
+      (enabled?'':'<span class="store-status">'+(tr?"Yakında":"Coming soon")+'</span>');
+    nav.appendChild(card);
+  });
+
+  var bots=/googlebot|google-inspectiontool|googleother|bingbot|duckduckbot|slurp|baiduspider|yandexbot|applebot|facebookexternalhit|facebot|twitterbot|telegrambot|whatsapp|discordbot|slackbot|linkedinbot|pinterestbot|crawler|spider|bot\b/i.test(ua);
+  var detectedStore=null;
+  if(/openharmony|hmos\s*next|harmonyos(?:\s*(?:next|[5-9](?:\.|\b))|\/(?:5|6|7|8|9)(?:\.|\b))/i.test(ua)){
+    detectedStore="harmony";
+  }else if(/iphone|ipad|ipod/i.test(ua)||(lower.indexOf("macintosh")!==-1&&navigator.maxTouchPoints>1)){
+    detectedStore="ios";
+  }else if(/windows nt/i.test(ua)){
+    detectedStore="windows";
+  }else if(/macintosh|mac os x/i.test(ua)){
+    detectedStore="ios";
+  }else if(/android/i.test(ua)){
+    detectedStore=/huawei|honor|huaweibrowser/i.test(ua)?"huawei":"android";
+  }
+  if(detectedStore&&config[detectedStore]===true&&!bots){
+    var detected=stores.find(function(item){return item.id===detectedStore;});
+    if(detected){
+      var selected=nav.querySelector('[data-store="'+detectedStore+'"]');
+      if(selected) selected.setAttribute("aria-current","true");
+      window.setTimeout(function(){window.location.replace(detected.href);},180);
+    }
+  }else if(detectedStore&&config[detectedStore]!==true){
+    document.getElementById("note").textContent=tr
+      ?"Bu cihazın mağazası henüz etkin değil. Diğer etkin mağazaları aşağıda görebilirsiniz."
+      :"The store for this device is not active yet. Other active stores are listed below.";
   }
 })();
 </script>
