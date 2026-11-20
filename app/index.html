@@ -40,6 +40,7 @@
     .store-status{flex:0 0 auto;padding:4px 7px;border:1px solid #43536a;border-radius:7px;color:#91a2b6;font-size:.68rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
     .store.is-disabled{background:#101d2c;border-color:#24364b;color:#74859a;opacity:.58;cursor:not-allowed;filter:saturate(.25)}
     .store.is-disabled .store-icon{filter:grayscale(1)}
+    .store[data-store="harmony"]{grid-column:1/-1}
     :focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
     @media(max-width:520px){body{padding:16px 12px}main{padding:22px 16px}.stores{grid-template-columns:1fr}.store{min-height:64px}}
     @media(prefers-reduced-motion:reduce){.store{transition:none}}
@@ -71,21 +72,22 @@
 
   var defaults={ios:true,android:true,huawei:true,harmony:false,windows:false};
   var config=window.COLUMNIST_STORE_CONFIG||defaults;
+  // Current AppGallery brand glyph from the Simple Icons catalogue.
+  var appGalleryIcon='<svg viewBox="0 0 24 24" role="img" aria-label="AppGallery"><path fill="#FF0000" d="M6.734 0C1.804 0 0 1.803 0 6.733v10.535C0 22.198 1.803 24 6.734 24h10.529C22.193 24 24 22.197 24 17.268V6.733C24 1.803 22.197 0 17.266 0zM8 4h.565A3.439 3.439 0 0 0 12 7.435 3.439 3.439 0 0 0 15.435 4H16c0 2.206-1.794 4-4 4S8 6.206 8 4zm6.468 8h.52l.713 2.16.696-2.158h.66l-1.092 3.14h-.532l-.714-2.063-.714 2.063h-.528l-1.095-3.14h.678l.694 2.158zm6.236 0h.629v3.138h-.629zM2.666 12h.638v1.267h1.439V12h.637v3.142h-.637v-1.276h-1.44v1.276h-.637zm5.668 0h.637v1.772c0 .9-.496 1.417-1.36 1.417-.856 0-1.347-.507-1.347-1.39v-1.797H6.9v1.775c0 .524.255.805.719.805.46 0 .714-.273.714-.784zm2.344 0h.563l1.378 3.14h-.668l-.282-.654H10.23l-.286.654h-.651zm6.893.002h2.312v.572H18.2v.643h1.16v.573H18.2v.777h1.744v.573H17.57zm-6.623.793-.48 1.124h.964z"/></svg>';
   var icons={
     ios:'<svg viewBox="0 0 384 512" role="img" aria-label="Apple"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-27-47.2-41.9-84.8-44.8-35.6-2.8-74.6 20.8-88.9 20.8-15.1 0-49.7-19.8-76.8-19.8C62.3 141 4 184.4 4 273.2c0 26.2 4.8 53.2 14.4 81 12.9 36.7 59.4 126.6 107.8 125.1 25.4-.6 43.3-18.1 76.3-18.1 32 0 48.6 18.1 76.9 18.1 48.8-.7 90.8-82.4 103.1-119.2-65.5-30.9-63.8-89.5-63.8-91.4zM261.5 104.8c27.4-32.5 24.9-62.2 24.1-72.8-24.2 1.4-52.2 16.5-68.1 35-17.5 19.8-27.8 44.3-25.6 72 26.2 2 50.1-11.4 69.6-34.2z"/></svg>',
     android:'<svg viewBox="0 0 48 48" role="img" aria-label="Google Play"><path fill="#34A853" d="M5.2 4.2c-.8.8-1.2 1.8-1.2 3.2v33.2c0 1.4.4 2.5 1.2 3.2L24 24 5.2 4.2z"/><path fill="#4285F4" d="M5.2 43.8c1.1 1 2.8 1.1 4.6.1L31 32.2 24 24 5.2 43.8z"/><path fill="#FBBC04" d="M42.3 20.1 33.7 15 24 24l9.7 8 8.6-5.1c3.1-1.8 3.1-5 0-6.8z"/><path fill="#EA4335" d="M9.8 4.1c-1.8-1-3.5-.9-4.6.1L24 24l9.7-9L9.8 4.1z"/></svg>',
-    huawei:'<svg viewBox="0 0 48 48" role="img" aria-label="Huawei AppGallery"><rect x="2" y="2" width="44" height="44" rx="10" fill="#F04452"/><path d="M11 8c0 4.1 2.8 6.1 13 6.1S37 12.1 37 8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><g fill="#fff"><path d="M24 18c-3.7 4.1-4.3 8.2-1.7 11.3.6.8 1.2 1.4 1.7 1.8.5-.4 1.1-1 1.7-1.8 2.6-3.1 2-7.2-1.7-11.3z"/><path d="M15.2 20c-.9 5.2 1.1 8.8 4.8 9.5 1 .2 1.8.2 2.5 0-1.1-4.2-3.4-7.3-7.3-9.5z"/><path d="M8.7 26c2.1 4.8 5.6 6.7 9 5.1.9-.4 1.6-.9 2.1-1.4-3.2-2.9-6.7-4.1-11.1-3.7z"/><path d="M13.2 35.4c4.5 2.7 8.3 1.9 9.8-1.5.4-.9.6-1.7.5-2.4-4.3-.1-7.7 1.1-10.3 3.9z"/><path d="M32.8 35.4c-4.5 2.7-8.3 1.9-9.8-1.5-.4-.9-.6-1.7-.5-2.4 4.3-.1 7.7 1.1 10.3 3.9z"/><path d="M39.3 26c-2.1 4.8-5.6 6.7-9 5.1-.9-.4-1.6-.9-2.1-1.4 3.2-2.9 6.7-4.1 11.1-3.7z"/><path d="M32.8 20c.9 5.2-1.1 8.8-4.8 9.5-1 .2-1.8.2-2.5 0 1.1-4.2 3.4-7.3 7.3-9.5z"/></g></svg>',
-    harmony:'<svg viewBox="0 0 48 48" role="img" aria-label="Huawei AppGallery"><rect x="2" y="2" width="44" height="44" rx="10" fill="#F04452"/><path d="M11 8c0 4.1 2.8 6.1 13 6.1S37 12.1 37 8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><g fill="#fff"><path d="M24 18c-3.7 4.1-4.3 8.2-1.7 11.3.6.8 1.2 1.4 1.7 1.8.5-.4 1.1-1 1.7-1.8 2.6-3.1 2-7.2-1.7-11.3z"/><path d="M15.2 20c-.9 5.2 1.1 8.8 4.8 9.5 1 .2 1.8.2 2.5 0-1.1-4.2-3.4-7.3-7.3-9.5z"/><path d="M8.7 26c2.1 4.8 5.6 6.7 9 5.1.9-.4 1.6-.9 2.1-1.4-3.2-2.9-6.7-4.1-11.1-3.7z"/><path d="M13.2 35.4c4.5 2.7 8.3 1.9 9.8-1.5.4-.9.6-1.7.5-2.4-4.3-.1-7.7 1.1-10.3 3.9z"/><path d="M32.8 35.4c-4.5 2.7-8.3 1.9-9.8-1.5-.4-.9-.6-1.7-.5-2.4 4.3-.1 7.7 1.1 10.3 3.9z"/><path d="M39.3 26c-2.1 4.8-5.6 6.7-9 5.1-.9-.4-1.6-.9-2.1-1.4 3.2-2.9 6.7-4.1 11.1-3.7z"/><path d="M32.8 20c.9 5.2-1.1 8.8-4.8 9.5-1 .2-1.8.2-2.5 0 1.1-4.2 3.4-7.3 7.3-9.5z"/></g></svg>',
+    huawei:appGalleryIcon,
+    harmony:appGalleryIcon,
     windows:'<svg viewBox="0 0 48 48" role="img" aria-label="Microsoft"><path fill="#F35325" d="M4 7 21 4.5v17H4z"/><path fill="#81BC06" d="M24 4.1 44 1v20.5H24z"/><path fill="#05A6F0" d="M4 24h17v17L4 38.5z"/><path fill="#FFBA08" d="M24 24h20v20.5L24 41z"/></svg>'
   };
   var stores=[
     {id:"ios",href:"https://apps.apple.com/app/id6826434377",en:"Apple App Store",tr:"Apple App Store",icon:icons.ios},
     {id:"android",href:"https://play.google.com/store/apps/details?id=com.columnist.lottoanalyticsai",en:"Google Play",tr:"Google Play",icon:icons.android},
     {id:"huawei",href:"https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai",en:"Huawei AppGallery",tr:"Huawei AppGallery",icon:icons.huawei},
-    {id:"harmony",href:"https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai.next",en:"AppGallery • HarmonyOS NEXT",tr:"AppGallery • HarmonyOS NEXT",icon:icons.harmony},
-    {id:"windows",href:"https://apps.microsoft.com/detail/9NXHVVZXZLC4",en:"Microsoft Store",tr:"Microsoft Store",icon:icons.windows}
-  ];
-  var nav=document.getElementById("stores");
+    {id:"windows",href:"https://apps.microsoft.com/detail/9NXHVVZXZLC4",en:"Microsoft Store",tr:"Microsoft Store",icon:icons.windows},
+    {id:"harmony",href:"https://appgallery.cloud.huawei.com/appDetail?pkgName=com.columnist.lottoanalyticsai.next",en:"AppGallery • HarmonyOS NEXT",tr:"AppGallery • HarmonyOS NEXT",icon:icons.harmony}
+  ];  var nav=document.getElementById("stores");
   nav.innerHTML="";
   stores.forEach(function(store){
     var enabled=config[store.id]===true;
