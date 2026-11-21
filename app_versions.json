@@ -10,11 +10,11 @@
       "mandatory": false
     },
     "android_gms": {
-      "version": "0.91.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "android_hms": {
-      "version": "0.91.0",
+      "version": "0.86.0",
       "mandatory": false
     },
     "harmonyos": {
@@ -28,7 +28,7 @@
   },
   "ads": {
     "android_gms": {
-      "enabled": false,
+      "enabled": true,
       "test": [],
       "live": []
     },
@@ -43,17 +43,17 @@
       "live": []
     },
     "harmonyos": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
       "live": []
     },
     "macos": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
       "live": []
     },
     "windows": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
       "live": []
     }
