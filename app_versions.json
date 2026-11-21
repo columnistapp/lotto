@@ -3,27 +3,27 @@
   "updates": {
     "ios": {
       "version": "0.86.0",
-      "mandatory": true
+      "mandatory": false
     },
     "macos": {
       "version": "0.86.0",
-      "mandatory": true
+      "mandatory": false
     },
     "android_gms": {
       "version": "0.91.0",
-      "mandatory": true
+      "mandatory": false
     },
     "android_hms": {
       "version": "0.91.0",
-      "mandatory": true
+      "mandatory": false
     },
     "harmonyos": {
       "version": "0.86.0",
-      "mandatory": true
+      "mandatory": false
     },
     "windows": {
       "version": "0.86.0",
-      "mandatory": true
+      "mandatory": false
     }
   },
   "ads": {
