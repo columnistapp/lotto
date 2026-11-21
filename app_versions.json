@@ -10,11 +10,11 @@
       "mandatory": true
     },
     "android_gms": {
-      "version": "0.86.0",
+      "version": "0.91.0",
       "mandatory": true
     },
     "android_hms": {
-      "version": "0.86.0",
+      "version": "0.91.0",
       "mandatory": true
     },
     "harmonyos": {
@@ -28,7 +28,7 @@
   },
   "ads": {
     "android_gms": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
       "live": []
     },
