@@ -6,9 +6,9 @@
  * When a store is ready, change only its value from false to true.
  */
 window.COLUMNIST_STORE_CONFIG = Object.freeze({
-  ios: true,
-  android: true,
-  huawei: true,
+  ios: false,
+  android: false,
+  huawei: false,
   harmony: false,
   windows: false
 });
