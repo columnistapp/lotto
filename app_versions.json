@@ -38,9 +38,9 @@
       "live": []
     },
     "android_hms": {
-      "enabled": true,
+      "enabled": false,
       "test": [],
-      "live": ["0.91.1"]
+      "live": []
     },
     "harmonyos": {
       "enabled": false,
