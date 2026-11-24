@@ -40,7 +40,7 @@
     "android_hms": {
       "enabled": true,
       "test": [],
-      "live": []
+      "live": ["0.91.1"]
     },
     "harmonyos": {
       "enabled": false,
